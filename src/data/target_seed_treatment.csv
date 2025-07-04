@@ -1,0 +1,31 @@
+Crop,Inoculant,Method
+Maize,Azospirillum,Seed coating
+Maize,Azotobacter,Slurry method
+Maize,Mycorrhiza,Powder mixing
+Wheat,Azospirillum,Seed coating
+Wheat,Phosphate Solubilizing Bacteria,Pelleting
+Wheat,Trichoderma,Powder mixing
+Rice,Azospirillum,Seed dipping
+Rice,Azotobacter,Slurry method
+Rice,Mycorrhiza,Seed coating
+Soybean,Rhizobium,Seed coating
+Soybean,Mycorrhiza,Powder mixing
+Soybean,Trichoderma,Dry coating
+Cotton,Azotobacter,Seed coating
+Cotton,Trichoderma,Powder mixing
+Cotton,Mycorrhiza,Pelleting
+Sugarcane,Azospirillum,Slurry method
+Sugarcane,Phosphate Solubilizing Bacteria,Powder mixing
+Sugarcane,Mycorrhiza,Seed coating
+Potato,Trichoderma,Powder mixing
+Potato,Mycorrhiza,Dry coating
+Potato,Bacillus subtilis,Seed dipping
+Tomato,Mycorrhiza,Seed coating
+Tomato,Trichoderma,Powder mixing
+Tomato,Pseudomonas fluorescens,Slurry method
+Coffee,Azotobacter,Pelleting
+Coffee,Trichoderma,Powder mixing
+Coffee,Mycorrhiza,Seed coating
+Barley,Azospirillum,Seed coating
+Barley,Phosphate Solubilizing Bacteria,Slurry method
+Barley,Trichoderma,Dry coating
