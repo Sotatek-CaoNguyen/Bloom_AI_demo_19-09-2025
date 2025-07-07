@@ -1,0 +1,56 @@
+Cash Crop,Cover Crop,Timing
+wheat,radish,before
+wheat,rye,both
+wheat,crimson clover,after
+wheat,field pea,before
+maize,hairy vetch,before
+maize,rye,after
+maize,clover,both
+maize,mustard,before
+maize,cowpea,after
+rice,sesbania,before
+rice,azolla,after
+rice,sunhemp,both
+rice,mucuna,after
+soybean,rye,before
+soybean,hairy vetch,after
+soybean,buckwheat,both
+soybean,lablab,after
+cotton,sorghum sudan grass,before
+cotton,clover,after
+cotton,cowpea,both
+cotton,sunn hemp,before
+coffee,mucuna,both
+coffee,clover,both
+coffee,lablab,before
+coffee,rye,after
+sugarcane,sunn hemp,before
+sugarcane,mucuna,both
+sugarcane,clover,after
+sugarcane,cowpea,before
+potato,radish,before
+potato,oats,after
+potato,buckwheat,both
+banana,lablab,both
+banana,clover,both
+banana,sunn hemp,before
+banana,mucuna,after
+tomato,field pea,before
+tomato,crimson clover,after
+tomato,mustard,both
+tomato,buckwheat,before
+palm oil,mucuna,both
+palm oil,lablab,both
+palm oil,sunn hemp,before
+palm oil,clover,after
+canola,field pea,before
+canola,hairy vetch,before
+canola,crimson clover,after
+tea,clover,both
+tea,lablab,before
+tea,mucuna,after
+tea,rye,both
+barley,radish,before
+barley,rye,after
+barley,field pea,both
+

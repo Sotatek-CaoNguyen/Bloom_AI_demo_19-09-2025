@@ -1,0 +1,29 @@
+{
+  "nitrogen fixing": [
+    { "key": "N", "op": "<", "value": 50 },
+    { "key": "P", "op": ">", "value": 10 }
+  ],
+  "nutrient scavenging": [
+    { "key": "N", "op": ">", "value": 80 },
+    { "key": "Sand", "op": ">", "value": 60 }
+  ],
+  "build soil organic matter": [
+    { "key": "SOM", "op": "<", "value": 2 },
+    { "key": "Clay", "op": ">", "value": 30 }
+  ],
+  "decompaction": [
+    { "key": "Clay", "op": ">", "value": 35 },
+    { "key": "CEC", "op": ">", "value": 25 }
+  ],
+  "erosion control": [
+    { "key": "Sand", "op": ">", "value": 60 }
+  ],
+  "weed suppression": [
+    { "key": "SOM", "op": "<", "value": 2 }
+  ],
+  "pest/disease management": [
+    { "key": "pH", "op": "<", "value": 5.5 },
+    { "key": "pH", "op": ">", "value": 8 },
+    { "key": "SOC", "op": "<", "value": 1 }
+  ]
+}

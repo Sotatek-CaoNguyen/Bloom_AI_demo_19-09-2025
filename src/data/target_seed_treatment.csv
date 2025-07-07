@@ -1,31 +1,52 @@
 Crop,Inoculant,Method
-Maize,Azospirillum,Seed coating
-Maize,Azotobacter,Slurry method
-Maize,Mycorrhiza,Powder mixing
-Wheat,Azospirillum,Seed coating
-Wheat,Phosphate Solubilizing Bacteria,Pelleting
-Wheat,Trichoderma,Powder mixing
-Rice,Azospirillum,Seed dipping
-Rice,Azotobacter,Slurry method
-Rice,Mycorrhiza,Seed coating
-Soybean,Rhizobium,Seed coating
-Soybean,Mycorrhiza,Powder mixing
-Soybean,Trichoderma,Dry coating
-Cotton,Azotobacter,Seed coating
-Cotton,Trichoderma,Powder mixing
-Cotton,Mycorrhiza,Pelleting
-Sugarcane,Azospirillum,Slurry method
-Sugarcane,Phosphate Solubilizing Bacteria,Powder mixing
-Sugarcane,Mycorrhiza,Seed coating
-Potato,Trichoderma,Powder mixing
-Potato,Mycorrhiza,Dry coating
-Potato,Bacillus subtilis,Seed dipping
-Tomato,Mycorrhiza,Seed coating
-Tomato,Trichoderma,Powder mixing
-Tomato,Pseudomonas fluorescens,Slurry method
-Coffee,Azotobacter,Pelleting
-Coffee,Trichoderma,Powder mixing
-Coffee,Mycorrhiza,Seed coating
-Barley,Azospirillum,Seed coating
-Barley,Phosphate Solubilizing Bacteria,Slurry method
-Barley,Trichoderma,Dry coating
+wheat,azospirillum,seed coating
+wheat,phosphate solubilizing bacteria,pelleting
+wheat,mycorrhiza,powder mixing
+maize,azospirillum,seed coating
+maize,azotobacter,slurry method
+maize,mycorrhiza,powder mixing
+maize,phosphate solubilizing bacteria,seed coating
+rice,azospirillum,root dipping
+rice,azotobacter,slurry method
+rice,blue green algae,water application
+rice,phosphate solubilizing bacteria,soil application
+soybean,rhizobium japonicum,seed coating
+soybean,bradyrhizobium,seed pelleting
+soybean,phosphate solubilizing bacteria,powder mixing
+soybean,mycorrhiza,root dipping
+cotton,azospirillum,seed coating
+cotton,azotobacter,soil drenching
+cotton,phosphate solubilizing bacteria,soil application
+cotton,mycorrhiza,powder mixing
+coffee,azotobacter,root dipping
+coffee,phosphate solubilizing bacteria,soil application
+coffee,mycorrhiza,powder mixing
+sugarcane,azospirillum,sett dipping
+sugarcane,acetobacter diazotrophicus,sett inoculation
+sugarcane,phosphate solubilizing bacteria,soil application
+potato,azotobacter,tuber coating
+potato,phosphate solubilizing bacteria,soil mixing
+potato,mycorrhiza,root zone application
+banana,azospirillum,sucker dipping
+banana,phosphate solubilizing bacteria,pit application
+banana,mycorrhiza,pit mixing
+tomato,azospirillum,seedling root dip
+tomato,phosphate solubilizing bacteria,soil application
+tomato,mycorrhiza,root zone application
+palm oil,azotobacter,root dipping
+palm oil,mycorrhiza,soil mixing
+palm oil,phosphate solubilizing bacteria,pit application
+canola,rhizobium,seed coating
+canola,phosphate solubilizing bacteria,soil application
+canola,azospirillum,foliar spray
+tea,azospirillum,root dipping
+tea,mycorrhiza,soil mixing
+tea,phosphate solubilizing bacteria,soil drenching
+barley,azospirillum,seed coating
+barley,phosphate solubilizing bacteria,soil mixing
+barley,mycorrhiza,powder mixing
+general,azospirillum,seed coating
+general,azotobacter,slurry
+general,rhizobium,seed pelleting
+general,phosphate solubilizing bacteria,soil application
+general,mycorrhiza,root zone application

@@ -1,0 +1,7 @@
+{
+  "description": "Summarize final recommendations for additional NPK fertilizer, inoculant-method pairs, and cover crops based on crop and soil data.",
+  
+  "system_prompt": "You are an agricultural advisor. Based on the provided structured data, deliver a clear and actionable summary of recommendations for the farmer. Emphasize that N_rec, P_rec, and K_rec represent the amount of nutrients that should be added — if the value is 0, then no addition is needed.",
+  
+  "user_prompt": "Below is the compiled recommendation data:\\n- Crop type: {crop_type}\\n- NPK recommendations (amounts to add, in kg/ha):\\n  {NPK_recs}\\n- Selected inoculant-method pairs with explanations:\\n  {inoculant_methods}\\n- Recommended cover crops and their associated goals:\\n  {cover_crops}\\n\\n### Conclusion Section\\nProvide a final, farmer-friendly summary that includes:\\n1. Fertilizer advice:\\n   - For each nutrient (N, P, K), state whether additional application is needed based on the provided values.\\n   - If the value is greater than 0, specify the amount to apply and why.\\n   - If the value is 0, indicate that no application is needed.\\n2. Inoculants:\\n   - List the selected inoculant-method pairs.\\n   - Explain how to apply each and what benefit it brings to the crop.\\n3. Cover crops:\\n   - List the recommended cover crops.\\n   - Briefly explain what goal(s) each one supports (e.g., nitrogen fixation, erosion control, weed suppression)."
+}
