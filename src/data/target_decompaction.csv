@@ -1,0 +1,21 @@
+Crop,Method,Suitable_Soil_Types,Optimal_Moisture_Min,Optimal_Moisture_Max,Effectiveness_Rating,Implementation_Notes
+General,Subsoiling,All,8,22,High,Best for severe compaction; avoid in wet conditions
+General,Deep Tillage,Sandy Loam|Loam|Clay Loam,10,18,Medium,Effective for moderate compaction; requires proper moisture
+General,Controlled Traffic,All,NA,NA,High,Preventive measure; reduces future compaction
+General,Cover Crops,All,NA,NA,Medium,Biological decompaction; long-term solution
+General,Chisel Plow,Sandy|Sandy Loam|Loam,8,16,Medium,Good for shallow to medium compaction
+Corn,Subsoiling,All,10,20,High,Effective before planting; improves root development
+Corn,Deep Ripping,Clay|Clay Loam,12,18,High,Breaks hardpan layers; timing critical
+Corn,Strip Tillage,Loam|Sandy Loam,10,15,Medium,Combines tillage with residue management
+Soybeans,Subsoiling,All,8,18,High,Improves drainage and root penetration
+Soybeans,Vertical Tillage,All,8,20,Medium,Light disturbance; maintains residue
+Soybeans,Cover Crops,All,NA,NA,High,Enhances soil biology; reduces compaction risk
+Wheat,Subsoiling,Clay|Clay Loam,12,20,High,Fall application preferred; improves winter survival
+Wheat,Deep Tillage,Sandy Loam|Loam,10,16,Medium,Effective for compacted layers
+Wheat,No-Till with Biologicals,All,NA,NA,Medium,Combines biological activity with minimal disturbance
+Cotton,Subsoiling,All,10,18,High,Critical for root development; timing essential
+Cotton,Deep Ripping,Clay|Clay Loam,14,20,High,Breaks compacted layers; improves water infiltration
+Cotton,Paratill,Sandy|Sandy Loam,8,14,Medium,Shallow decompaction; preserves surface residue
+Rice,Controlled Traffic,Clay|Clay Loam,15,25,High,Reduces compaction in flooded conditions
+Rice,Puddling,Clay,20,30,High,Specific for rice production; creates plow pan
+Rice,Laser Leveling,All,12,20,Medium,Improves drainage and reduces compaction zones
