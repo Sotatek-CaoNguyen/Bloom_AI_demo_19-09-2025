@@ -4,3 +4,4 @@ from .cover_crop_mix_recommender import CoverCropMixRecommender
 from .decompaction_recommender import DecompactionRecommender
 from .final_recommender import FinalRecommeder
 from .plant_timing_recommender import PlantTimingRecommender
+from .compaction_ranking import CompactionLevelRanking

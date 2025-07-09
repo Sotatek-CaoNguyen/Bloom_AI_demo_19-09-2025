@@ -7,13 +7,14 @@ class FinalRecommeder():
         self.system_prompt = system_prompt
         self.user_prompt = user_prompt
 
-    def recommend(self, crop_type, NPK_recs, inoculant_methods, cover_crops, decompaction,plant_timing):
+    def recommend(self, crop_type, NPK_recs, inoculant_methods, cover_crops, decompaction,plant_timing, compaction):
         inputs = {
             "crop_type": crop_type,
             "NPK_recs": NPK_recs,
             "inoculant_methods": inoculant_methods,
             "decompaction": decompaction,
             "plant_timing": plant_timing,
+            "compaction": compaction,
             "cover_crops": cover_crops
         }
         self.user_prompt = self.user_prompt.format(**inputs)

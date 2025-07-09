@@ -1,7 +1,7 @@
 import streamlit as st
 import json
 import pandas as pd
-from src.modules import CoverCropMixRecommender, FinalRecommeder, NPKRecommender, SeedTreatmentRecommender, DecompactionRecommender, PlantTimingRecommender
+from src.modules import CoverCropMixRecommender, FinalRecommeder, NPKRecommender, SeedTreatmentRecommender, DecompactionRecommender, PlantTimingRecommender, CompactionLevelRanking
 from concurrent.futures import ThreadPoolExecutor
 import os
 from dotenv import load_dotenv
@@ -30,6 +30,11 @@ def main():
     plant_timing_system_prompt = plant_timing_prompt_data["system_prompt"]
     plant_timing_user_prompt = plant_timing_prompt_data["user_prompt"]
 
+    with open("src//prompts//compaction_ranking.json", "r", encoding="utf-8") as f:
+        compaction_ranking_prompt_data = json.load(f)
+    compaction_ranking_system_prompt = compaction_ranking_prompt_data["system_prompt"]
+    compaction_ranking_user_prompt = compaction_ranking_prompt_data["user_prompt"]
+
     with open("src//prompts//final_recommend_prompt.json", "r", encoding="utf-8") as f:
         final_recommend_prompt_data = json.load(f)
     final_recommend_system_prompt = final_recommend_prompt_data["system_prompt"]
@@ -40,6 +45,7 @@ def main():
     seed_treatment_recommender_ = SeedTreatmentRecommender("src//data/target_seed_treatment.csv", seed_treatment_system_prompt, seed_treatment_user_prompt, TOGETHER_API_KEY)
     decompaction_recommender = DecompactionRecommender("src//data/target_decompaction.csv", seed_treatment_system_prompt,  decompaction_user_prompt, TOGETHER_API_KEY)
     plant_timing_recommender = PlantTimingRecommender("src//data/target_plant_timing.csv", "src//data/climate.csv", plant_timing_system_prompt, plant_timing_user_prompt, TOGETHER_API_KEY)
+    compaction_ranking_recommender = CompactionLevelRanking("src//data/compaction_ranking.csv",compaction_ranking_system_prompt,compaction_ranking_user_prompt,TOGETHER_API_KEY)
     final_recommender_ = FinalRecommeder(final_recommend_system_prompt, final_recommend_user_prompt, TOGETHER_API_KEY)
 
     st.set_page_config(page_title="Demo AI App", layout="centered")
@@ -75,7 +81,7 @@ def main():
         soil_depth = st.number_input("📏 Độ sâu đất canh tác (cm)", min_value=0, max_value=200, value=40, step=1)
         traffic_intensity = st.selectbox("🚜 Mức độ đi lại máy móc", options=["Thấp", "Trung bình", "Cao"], index=1)
         compaction_history = st.selectbox("🧱 Lịch sử nén đất", options=["Không có", "Vừa phải", "Nhiều"], index=0)
-    with st.expander("🌱 Thông tin giống và khí hậu", expanded=True):
+    with st.expander("🌱 Thông tin giống và khí hậu", expanded=False):
         seed_variety = st.text_input("📘 Tên giống cây trồng", placeholder="e.g., Pioneer 1234").strip()
         
         col_lat, col_lon = st.columns(2)
@@ -91,10 +97,13 @@ def main():
         frost_free_start = st.date_input("❄️ Ngày bắt đầu không có sương giá", value=pd.to_datetime("2023-04-01"), help="Thường vào đầu mùa xuân")
         frost_free_end = st.date_input("❄️ Ngày kết thúc không có sương giá", value=pd.to_datetime("2023-10-31"), help="Thường vào cuối mùa thu")
         growing_season_length = st.number_input("🗓 Thời gian sinh trưởng ""yêu cầu (ngày)", min_value=1, max_value=365, value=95, step=1)
-        soil_temp = st.text_input("🌡 Nhiệt độ đất", placeholder="e.g., 15°C in March, 20°C in June")
+        soil_temp = st.number_input("🌡 Nhiệt độ đất", placeholder="e.g., 15°C in March, 20°C in June")
         humidity = st.number_input("💧 Độ ẩm (%)", min_value=0, max_value=100, value=65, step=1)
         weather_pattern = st.text_area("🌦 Mô hình thời tiết", placeholder="e.g., Mưa nhiều từ tháng 5 đến tháng 9, nắng vào mùa hè")
-
+    with st.expander("Compaction Ranking", expanded=False):
+        plough_depth = st.number_input("Plough Depth (cm)", min_value=0, max_value=100, value=20, step=1)
+        bare_soil_history = st.selectbox("Bare Soil History", options=["No", "Yes"], index=0)
+        machine_type = st.selectbox("Machine Type", options=["Tractor", "Manual", "Other"], index=0)
 
     if st.button("🚀 Recommend"):
         inputs = {
@@ -131,6 +140,9 @@ def main():
             "soil_temp" : soil_temp, 
             "humidity" : humidity, 
             "weather_pattern" : weather_pattern,
+            "plough_depth": plough_depth,
+            "bare_soil_history": bare_soil_history,
+            "machine_type": machine_type
     }
 
         with ThreadPoolExecutor() as executor:
@@ -195,6 +207,16 @@ def main():
                 growing_season_length = inputs["growing_season_length"]
             )
 
+            future_compaction_ranking = executor.submit(
+                compaction_ranking_recommender.recommend,
+                sand=inputs["sand"],   
+                silt=inputs["silt"],
+                clay=inputs["clay"],
+                plough_depth = inputs["plough_depth"],
+                bare_soil_history = inputs["bare_soil_history"],
+                machine_type = inputs["machine_type"]
+            )
+
             future_cover = executor.submit(
                 cover_crop_mix_recommender_.recommend,
                 current_cash_crop=inputs["current_cash_crop"],
@@ -211,17 +233,21 @@ def main():
             npk_recommend = future_npk.result()
             print("---------------")
             print("NPK Recommendation:")
-            # print(npk_recommend)
+            print(npk_recommend)
             seed_treatment_recommend = future_seed.result()
             cover_crop_mix_recommend = future_cover.result()
             decompaction_recommend = future_decompaction.result()
             print("---------------")
             print("Decompaction Recommendation:")
-            # print(decompaction_recommend)
+            print(decompaction_recommend)
             plant_timing_recommend = future_plant_timing.result()
             print("---------------")
             print("Plant Timing Recommendation:")
-            # print(plant_timing_recommend)
+            print(plant_timing_recommend)
+            compaction_ranking_recommend = future_compaction_ranking.result()
+            print("---------------")    
+            print("Compaction Ranking Recommendation:")
+            print(compaction_ranking_recommend)
 
         a= inputs["crop_type"]
         b= npk_recommend.split("### Conclusion Section\n")[-1]
@@ -229,7 +255,8 @@ def main():
         d= decompaction_recommend.split("### Conclusion Section\n")[-1]
         e= cover_crop_mix_recommend
         g= plant_timing_recommend.split("### Conclusion Section\n")[-1]
-        h = final_recommender_.recommend(a,b,c,d,e,g)
+        j = compaction_ranking_recommend.split("### Conclusion Section\n")[-1]
+        h = final_recommender_.recommend(a,b,c,d,e,g,j)
 
         with st.container():
             st.markdown(h)

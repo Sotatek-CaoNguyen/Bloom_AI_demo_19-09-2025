@@ -1,0 +1,13 @@
+Soil_Texture,Green_Max,Orange_Max,Red_Min,Unit,Description
+Clay,1.4,1.6,1.6,g/cm³,Heavy clay soils - most susceptible to compaction
+Clay loam,1.5,1.7,1.7,g/cm³,Moderately heavy soils with good structure potential
+Silty clay,1.45,1.65,1.65,g/cm³,Fine-textured soils prone to compaction when wet
+Silty clay loam,1.55,1.75,1.75,g/cm³,Medium-textured soils with moderate compaction risk
+Loam,1.6,1.8,1.8,g/cm³,Well-balanced soils with good structure
+Silt loam,1.65,1.85,1.85,g/cm³,Fine-textured soils with moderate compaction risk
+Silt,1.7,1.9,1.9,g/cm³,Fine-textured soils with drainage concerns
+Sandy clay loam,1.7,1.9,1.9,g/cm³,Coarse-textured soils with some clay binding
+Sandy loam,1.8,2.0,2.0,g/cm³,Coarse-textured soils with good drainage
+Loamy sand,1.85,2.05,2.05,g/cm³,Coarse-textured soils - less prone to compaction
+Sand,1.9,2.1,2.1,g/cm³,Coarse-textured soils - least prone to compaction
+General,1.6,1.8,1.8,g/cm³,Default thresholds when specific texture unknown
