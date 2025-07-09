@@ -1,0 +1,15 @@
+Variety,Crop_Type,Min_Germination_Temp,Optimal_Temp_Range,Maturity_Days,Frost_Tolerance,Heat_Tolerance,Photoperiod_Sensitive,Growing_Season_Required,Special_Requirements
+IR64,Rice,12,25-30,110,Low,High,Yes,110,Flooded conditions
+Makino,Rice,10,22-28,105,Medium,High,Yes,105,Paddy field
+Nang Huong,Rice,12,24-30,115,Low,High,Yes,115,Aromatic variety
+Pioneer 3467,Corn,8,18-24,120,Low,Medium,No,120,Well-drained soil
+LVN99,Corn,10,20-26,115,Medium,Medium,No,115,Hybrid variety
+Bary,Soybean,10,20-30,95,Low,Medium,Yes,95,Inoculation recommended
+DT84,Soybean,8,18-28,90,Medium,Medium,Yes,90,Early maturity
+Thom 7,Tomato,15,18-24,80,Low,Low,No,80,Greenhouse suitable
+Duc Thanh,Tomato,12,16-26,75,Low,Medium,No,75,Open field variety
+Bac Thom,Cabbage,4,15-20,70,High,Low,No,70,Cool season crop
+Green Rocket,Lettuce,2,12-18,60,High,Low,No,60,Fast growing
+Thai Binh,Watermelon,18,22-30,90,Low,High,No,90,Long growing season
+Bac Kan,Pumpkin,15,20-25,100,Low,Medium,No,100,Vining variety
+General,General,10,15-25,90,Medium,Medium,No,90,Default values

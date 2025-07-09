@@ -121,7 +121,7 @@ class DecompactionRecommender():
         }
         
         self.user_prompt = self.user_prompt.format(**inputs)
-        return self.llm.generate(self.system_prompt, self.user_prompt)
+        return self.llm.generate(self.system_prompt, self.user_prompt) #llm_response = self.llm.generate(self.system_prompt, formatted_user_prompt)
         
         # Return combined analysis
         # return {
