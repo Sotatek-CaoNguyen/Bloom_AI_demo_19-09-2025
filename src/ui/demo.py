@@ -334,15 +334,187 @@ def main():
 
     # Recommendation button
     st.markdown("---")
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        if st.button("🚀 Generate Recommendation"):
+    # col1, col2, col3 = st.columns([1, 1, 1])
+    # with col2:
+    #     if st.button("🚀 Generate Recommendation of NPK", key="seed_recommend"):
+    #         with st.spinner("🔄 Analyzing and generating recommendations..."):
+    #             # Collect all inputs
+    #             inputs = {
+    #                 "current_cash_crop": current_cash_crop,
+    #                 "next_cash_crop": next_cash_crop,
+    #                 "after_next_cash_crop": after_next_cash_crop,
+    #                 "crop_type": current_cash_crop,
+    #                 "N": N,      
+    #                 "P": P,       
+    #                 "K": K,      
+    #                 "pH": ph,
+    #                 "CEC": cec,
+    #                 "SOC": soc,
+    #                 "sand": sand,  
+    #                 "silt": silt,
+    #                 "clay": clay,
+    #                 "soil_moisture": soil_moisture,
+    #                 "bulk_density": bulk_density,
+    #                 "penetration_resistance": penetration_resistance,
+    #                 "organic_matter": organic_matter,
+    #                 "soil_depth": soil_depth,
+    #                 "traffic_intensity": traffic_intensity,
+    #                 "compaction_history": compaction_history,
+    #                 "seed_variety": seed_variety,
+    #                 "latitude": latitude, 
+    #                 "longitude": longitude,
+    #                 "climate_zone": climate_zone,
+    #                 "avg_temp_min": avg_temp_min, 
+    #                 "avg_temp_max": avg_temp_max, 
+    #                 "annual_rainfall": annual_rainfall, 
+    #                 "frost_free_start": frost_free_start, 
+    #                 "frost_free_end": frost_free_end,
+    #                 "growing_season_length": growing_season_length, 
+    #                 "soil_temp": soil_temp, 
+    #                 "humidity": humidity, 
+    #                 "weather_pattern": weather_pattern,
+    #                 "plough_depth": plough_depth,
+    #                 "bare_soil_history": bare_soil_history,
+    #                 "machine_type": machine_type
+    #             }
+
+
+    #         with ThreadPoolExecutor() as executor:
+    #             future_npk = executor.submit(
+    #                 npk_recommender_.recommend,
+    #                 crop_type=inputs["crop_type"],
+    #                 N=inputs["N"],
+    #                 P=inputs["P"],
+    #                 K=inputs["K"],
+    #                 sand=inputs["sand"],
+    #                 silt=inputs["silt"],
+    #                 clay=inputs["clay"],
+    #                 ph=inputs["pH"],
+    #                 cec=inputs["CEC"],
+    #                 soc=inputs["SOC"]
+    #             )
+
+    #             future_seed = executor.submit(
+    #                 seed_treatment_recommender_.recommend,
+    #                 crop_type=inputs["crop_type"],
+    #                 N=inputs["N"],
+    #                 P=inputs["P"],
+    #                 K=inputs["K"],
+    #                 sand=inputs["sand"],
+    #                 silt=inputs["silt"],
+    #                 clay=inputs["clay"],
+    #                 ph=inputs["pH"],
+    #                 cec=inputs["CEC"],
+    #                 soc=inputs["SOC"]
+    #             )
+                
+    #             future_decompaction = executor.submit(
+    #                 decompaction_recommender.recommend,
+    #                 crop_type=inputs["crop_type"],
+    #                 sand=inputs["sand"],
+    #                 silt=inputs["silt"],
+    #                 clay=inputs["clay"],
+    #                 soil_moisture=inputs["soil_moisture"],  # Assuming N as a proxy for soil moisture
+    #                 bulk_density=inputs["bulk_density"],  # Placeholder value, adjust as needed
+    #                 penetration_resistance=inputs["penetration_resistance"],  # Placeholder value, adjust as needed
+    #                 organic_matter=inputs["organic_matter"],  # Assuming SOC as a proxy for organic matter
+    #                 soil_depth=inputs["soil_depth"],  # Placeholder value, adjust as needed
+    #                 traffic_intensity=inputs["traffic_intensity"],  # Placeholder value, adjust as needed
+    #                 compaction_history=inputs["compaction_history"]  # Placeholder value, adjust as needed
+    #             )
+
+    #             future_plant_timing = executor.submit(
+    #                 plant_timing_recommender.recommend,  
+    #                 seed_variety= inputs["seed_variety"],
+    #                 crop_type= inputs["crop_type"],
+    #                 latitude= inputs["latitude"], 
+    #                 longitude= inputs["longitude"],
+    #                 climate_zone = inputs["climate_zone"],
+    #                 avg_temp_min = inputs["avg_temp_min"],
+    #                 avg_temp_max = inputs["avg_temp_max"],
+    #                 annual_rainfall = inputs["annual_rainfall"],
+    #                 frost_free_start = inputs["frost_free_start"],
+    #                 frost_free_end = inputs["frost_free_end"],
+    #                 soil_temp = inputs["soil_temp"],
+    #                 humidity = inputs["humidity"],
+    #                 weather_pattern = inputs["weather_pattern"],
+    #                 growing_season_length = inputs["growing_season_length"]
+    #             )
+
+    #             future_compaction_ranking = executor.submit(
+    #                 compaction_ranking_recommender.recommend,
+    #                 sand=inputs["sand"],   
+    #                 silt=inputs["silt"],
+    #                 clay=inputs["clay"],
+    #                 plough_depth = inputs["plough_depth"],
+    #                 bare_soil_history = inputs["bare_soil_history"],
+    #                 machine_type = inputs["machine_type"]
+    #             )
+
+    #             future_cover = executor.submit(
+    #                 cover_crop_mix_recommender_.recommend,
+    #                 current_cash_crop=inputs["current_cash_crop"],
+    #                 next_cash_crop=inputs["next_cash_crop"],
+    #                 after_next_cash_crop=inputs["after_next_cash_crop"],
+    #                 N=inputs["N"],
+    #                 P=inputs["P"],
+    #                 K=inputs["K"],
+    #                 sand=inputs["sand"],
+    #                 silt=inputs["silt"],
+    #                 clay=inputs["clay"]
+    #             )
+
+    #             npk_recommend = future_npk.result()
+    #             print("---------------")
+    #             print("NPK Recommendation:")
+    #             print(npk_recommend)
+    #             seed_treatment_recommend = future_seed.result()
+    #             cover_crop_mix_recommend = future_cover.result()
+    #             decompaction_recommend = future_decompaction.result()
+    #             print("---------------")
+    #             print("Decompaction Recommendation:")
+    #             print(decompaction_recommend)
+    #             plant_timing_recommend = future_plant_timing.result()
+    #             print("---------------")
+    #             print("Plant Timing Recommendation:")
+    #             print(plant_timing_recommend)
+    #             compaction_ranking_recommend = future_compaction_ranking.result()
+    #             print("---------------")    
+    #             print("Compaction Ranking Recommendation:")
+    #             print(compaction_ranking_recommend)
+
+    #         a= inputs["crop_type"]
+    #         b= npk_recommend.split("### Conclusion Section\n")[-1]
+    #         c= seed_treatment_recommend.split("### Conclusion Section\n")[-1]
+    #         d= decompaction_recommend.split("### Reasoning Section\n")[-1]
+    #         e= cover_crop_mix_recommend
+    #         g= plant_timing_recommend.split("### Reasoning Section\n")[-1]
+    #         j = compaction_ranking_recommend.split("### Reasoning Section\n")[-1]
+    #         h = final_recommender_.recommend(a,b,c,d,e,g,j)
+
+    #         with st.container():
+    #             st.markdown("### 1)NPK Recommendation")
+    #             st.markdown(npk_recommend)
+    #             st.markdown("### 2)Seed Treatment Recommendation")
+    #             st.markdown(seed_treatment_recommend)
+    #             st.markdown("### 3)Decompaction Recommendation")
+    #             st.markdown(decompaction_recommend)
+    #             st.markdown("### 4)Cover Crop Mix Recommendation")
+    #             st.markdown(cover_crop_mix_recommend)
+    #             st.markdown("### 5)Plant Timing Recommendation")
+    #             st.markdown(plant_timing_recommend)
+    #             st.markdown("### 6)Compaction Ranking Recommendation")
+    #             st.markdown(compaction_ranking_recommend)
+    #             st.markdown("### 7)Final Recommendation")
+                # st.markdown(h)
+    
+
+    col1, col2, col3 = st.columns([1, 1, 1])
+    with col1:
+        if st.button("🚀 Generate Recommendation of NPK", key="npk_recommend_button"):
             with st.spinner("🔄 Analyzing and generating recommendations..."):
                 # Collect all inputs
                 inputs = {
-                    "current_cash_crop": current_cash_crop,
-                    "next_cash_crop": next_cash_crop,
-                    "after_next_cash_crop": after_next_cash_crop,
                     "crop_type": current_cash_crop,
                     "N": N,      
                     "P": P,       
@@ -353,29 +525,6 @@ def main():
                     "sand": sand,  
                     "silt": silt,
                     "clay": clay,
-                    "soil_moisture": soil_moisture,
-                    "bulk_density": bulk_density,
-                    "penetration_resistance": penetration_resistance,
-                    "organic_matter": organic_matter,
-                    "soil_depth": soil_depth,
-                    "traffic_intensity": traffic_intensity,
-                    "compaction_history": compaction_history,
-                    "seed_variety": seed_variety,
-                    "latitude": latitude, 
-                    "longitude": longitude,
-                    "climate_zone": climate_zone,
-                    "avg_temp_min": avg_temp_min, 
-                    "avg_temp_max": avg_temp_max, 
-                    "annual_rainfall": annual_rainfall, 
-                    "frost_free_start": frost_free_start, 
-                    "frost_free_end": frost_free_end,
-                    "growing_season_length": growing_season_length, 
-                    "soil_temp": soil_temp, 
-                    "humidity": humidity, 
-                    "weather_pattern": weather_pattern,
-                    "plough_depth": plough_depth,
-                    "bare_soil_history": bare_soil_history,
-                    "machine_type": machine_type
                 }
 
 
@@ -394,20 +543,90 @@ def main():
                     soc=inputs["SOC"]
                 )
 
-                future_seed = executor.submit(
-                    seed_treatment_recommender_.recommend,
-                    crop_type=inputs["crop_type"],
-                    N=inputs["N"],
-                    P=inputs["P"],
-                    K=inputs["K"],
-                    sand=inputs["sand"],
-                    silt=inputs["silt"],
-                    clay=inputs["clay"],
-                    ph=inputs["pH"],
-                    cec=inputs["CEC"],
-                    soc=inputs["SOC"]
-                )
+                npk_recommend = future_npk.result()
+
+            with st.container():
+                st.markdown("### 1)NPK Recommendation")
+                st.markdown(npk_recommend.split("### Conclusion Section\n")[-1])
                 
+    with col2:
+        if st.button("🚀 Generate Recommendation of Seed", key="seed_recommend"):
+            with st.spinner("🔄 Analyzing and generating recommendations..."):
+                # Collect all inputs
+                inputs = {
+                    "crop_type": current_cash_crop,
+                    "N": N,
+                    "P": P,
+                    "K": K,
+                    "pH": ph,
+                    "CEC": cec,
+                    "SOC": soc,
+                    "sand": sand,
+                    "silt": silt,
+                    "clay": clay,
+                }
+
+                with ThreadPoolExecutor() as executor:
+                    future_seed = executor.submit(
+                        seed_treatment_recommender_.recommend,
+                        crop_type=inputs["crop_type"],
+                        N=inputs["N"],
+                        P=inputs["P"],
+                        K=inputs["K"],
+                        sand=inputs["sand"],
+                        silt=inputs["silt"],
+                        clay=inputs["clay"],
+                        ph=inputs["pH"],
+                        cec=inputs["CEC"],
+                        soc=inputs["SOC"]
+                    )
+                    seed_treatment_recommend = future_seed.result()
+
+            # Use a container for better layout control
+            with st.container():
+                st.markdown("### 2) Seed Treatment Recommendation", unsafe_allow_html=True)
+                
+                # Check if the output is a string or a list of dictionaries
+                if isinstance(seed_treatment_recommend, str):
+                    # If it's a string, split and process it
+                    recommendations = seed_treatment_recommend.split("### Conclusion Section\n")[-1].strip()
+                    st.markdown(recommendations)
+                else:
+                    # Assuming seed_treatment_recommend is a list of dictionaries
+                    for idx, recommendation in enumerate(seed_treatment_recommend, 1):
+                        with st.expander(f"Recommendation {idx}: {recommendation.get('Recommended Inoculant Mix', 'Unknown Mix')}"):
+                            st.markdown(f"**Description**: {recommendation.get('Description', 'No description available')}")
+                            st.markdown(f"**Recommended Quantity**: {recommendation.get('Recommended Quantity', 'N/A')} kg/ha")
+                            st.markdown(f"**Recommended Date**: {recommendation.get('Recommended Date', 'N/A')}")
+                            st.markdown(f"**Application Instruction**: {recommendation.get('Application Instruction', 'N/A')}")
+                            st.markdown("---")  # Separator line for visual distinction
+
+
+    with col3:
+        if st.button("🚀 Generate Recommendation of Decompaction/Compation", key="cover_recommend"):
+            with st.spinner("🔄 Analyzing and generating recommendations..."):
+                # Collect all inputs
+                inputs = {
+                    "crop_type": current_cash_crop,
+    
+                    "sand": sand,  
+                    "silt": silt,
+                    "clay": clay,
+                    "soil_moisture": soil_moisture,
+                    "bulk_density": bulk_density,
+                    "penetration_resistance": penetration_resistance,
+                    "organic_matter": organic_matter,
+                    "soil_depth": soil_depth,
+                    "traffic_intensity": traffic_intensity,
+                    "compaction_history": compaction_history,
+                    "seed_variety": seed_variety,
+                    "plough_depth": plough_depth,
+                    "bare_soil_history": bare_soil_history,
+                    "machine_type": machine_type
+                }
+
+
+            with ThreadPoolExecutor() as executor:
                 future_decompaction = executor.submit(
                     decompaction_recommender.recommend,
                     crop_type=inputs["crop_type"],
@@ -423,24 +642,6 @@ def main():
                     compaction_history=inputs["compaction_history"]  # Placeholder value, adjust as needed
                 )
 
-                future_plant_timing = executor.submit(
-                    plant_timing_recommender.recommend,  
-                    seed_variety= inputs["seed_variety"],
-                    crop_type= inputs["crop_type"],
-                    latitude= inputs["latitude"], 
-                    longitude= inputs["longitude"],
-                    climate_zone = inputs["climate_zone"],
-                    avg_temp_min = inputs["avg_temp_min"],
-                    avg_temp_max = inputs["avg_temp_max"],
-                    annual_rainfall = inputs["annual_rainfall"],
-                    frost_free_start = inputs["frost_free_start"],
-                    frost_free_end = inputs["frost_free_end"],
-                    soil_temp = inputs["soil_temp"],
-                    humidity = inputs["humidity"],
-                    weather_pattern = inputs["weather_pattern"],
-                    growing_season_length = inputs["growing_season_length"]
-                )
-
                 future_compaction_ranking = executor.submit(
                     compaction_ranking_recommender.recommend,
                     sand=inputs["sand"],   
@@ -450,64 +651,19 @@ def main():
                     bare_soil_history = inputs["bare_soil_history"],
                     machine_type = inputs["machine_type"]
                 )
-
-                future_cover = executor.submit(
-                    cover_crop_mix_recommender_.recommend,
-                    current_cash_crop=inputs["current_cash_crop"],
-                    next_cash_crop=inputs["next_cash_crop"],
-                    after_next_cash_crop=inputs["after_next_cash_crop"],
-                    N=inputs["N"],
-                    P=inputs["P"],
-                    K=inputs["K"],
-                    sand=inputs["sand"],
-                    silt=inputs["silt"],
-                    clay=inputs["clay"]
-                )
-
-                npk_recommend = future_npk.result()
-                print("---------------")
-                print("NPK Recommendation:")
-                print(npk_recommend)
-                seed_treatment_recommend = future_seed.result()
-                cover_crop_mix_recommend = future_cover.result()
+           
                 decompaction_recommend = future_decompaction.result()
-                print("---------------")
-                print("Decompaction Recommendation:")
-                print(decompaction_recommend)
-                plant_timing_recommend = future_plant_timing.result()
-                print("---------------")
-                print("Plant Timing Recommendation:")
-                print(plant_timing_recommend)
+                
                 compaction_ranking_recommend = future_compaction_ranking.result()
-                print("---------------")    
-                print("Compaction Ranking Recommendation:")
-                print(compaction_ranking_recommend)
-
-            a= inputs["crop_type"]
-            b= npk_recommend.split("### Reasoning Section\n")[-1]
-            c= seed_treatment_recommend.split("### Reasoning Section\n")[-1]
-            d= decompaction_recommend.split("### Reasoning Section\n")[-1]
-            e= cover_crop_mix_recommend
-            g= plant_timing_recommend.split("### Reasoning Section\n")[-1]
-            j = compaction_ranking_recommend.split("### Reasoning Section\n")[-1]
-            h = final_recommender_.recommend(a,b,c,d,e,g,j)
+         
 
             with st.container():
-                st.markdown("### NPK Recommendation")
-                st.markdown(npk_recommend)
-                st.markdown("### Seed Treatment Recommendation")
-                st.markdown(seed_treatment_recommend)
-                st.markdown("### Decompaction Recommendation")
-                st.markdown(decompaction_recommend)
-                st.markdown("### Cover Crop Mix Recommendation")
-                st.markdown(cover_crop_mix_recommend)
-                st.markdown("### Plant Timing Recommendation")
-                st.markdown(plant_timing_recommend)
-                st.markdown("### Compaction Ranking Recommendation")
-                st.markdown(compaction_ranking_recommend)
-                st.markdown("### Final Recommendation")
-                st.markdown(h)
-            st.markdown("""
+                st.markdown("### 3)Decompaction Recommendation")
+                st.markdown(decompaction_recommend.split("### Conclusion Section\n")[-1])
+                st.markdown("### 4)Compaction Ranking Recommendation")
+                st.markdown(compaction_ranking_recommend.split("### Conclusion Section\n")[-1])
+
+    st.markdown("""
 <div style="text-align: center; color: #666; padding: 2rem;">
     <p>🌱 Bloom AI - Intelligent Agricultural Recommendation System</p>
     <p>Developed with ❤️ to support Vietnamese farmers</p>
